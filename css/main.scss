@@ -1,0 +1,63 @@
+$theme-colors: (
+  "bG": #ffffff,
+  "primary": #ffd0c7,
+  "secondary": #ff775f,
+  "accent": #ff9683,
+  "accent_2": #ffb5a6
+);
+
+body {
+  background-color: map-get($theme-colors, "bG");
+  box-sizing: border-box;
+  margin: 0;
+  padding: 100px;
+  h1 {
+    text-align: center;
+    position: relative;
+    bottom: 50px;
+
+    color: map-get($theme-colors, "secondary");
+  }
+}
+.calculator-main {
+  transform: translateY(50);
+  transform: translateX(50);
+  background-color: map-get($theme-colors, "primary");
+  max-width: 250px;
+  height: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  .res {
+    box-shadow: none;
+    background: none;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+    text-align: right;
+    border-bottom: 1px solid map-get($theme-colors, "accent");
+  }
+
+  .allButtons {
+    display: grid;
+    grid-template-rows: repeat(5, 50px);
+    grid-template-columns: repeat(4, 1fr);
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+
+    button {
+      outline: none;
+      text-align: center;
+      border: 0.5px solid map-get($theme-colors, "accent_2");
+
+      background-color: map-get($theme-colors, "secondary");
+    }
+    .clear {
+      grid-column: span 2;
+    }
+  }
+}
