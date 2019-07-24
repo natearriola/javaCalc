@@ -8,8 +8,8 @@
 /*
 - Add result in data structure 
 - calculate result of display 
+
 */
-const calcController = (function() {})();
 
 //UI CONTROLLER
 /*
@@ -17,23 +17,57 @@ const calcController = (function() {})();
 - display input value on UI 
 - update UI 
 */
-const userInterfaceController = (function() {})();
+const UIController = (function() {
+  return {
+    btn: document.querySelectorAll(".btn"),
+    currentVal: document.querySelector(".currentValue"),
+    btnClick: function() {
+      for (let btn of UIController.btn) {
+        btn.addEventListener("click", function() {
+          const btnClicked = this.innerHTML;
+          if (UIController.currentVal.innerHTML === "0") {
+            UIController.currentVal.innerHTML = btnClicked;
+          } else {
+            UIController.currentVal.innerHTML += btnClicked;
+          }
+        });
+      }
+    }
+  };
+})();
+
+const calcController = (function(UICtrl) {
+  return {
+    clear: function() {
+      if (UICtrl.btnClicked === "AC") {
+        UIController.currentVal.innerHTML = "0";
+        UIController.inputStorage = [];
+      }
+    }
+  };
+})(UIController);
 
 //GLPOBAL APP CONTROLLER
 //Controls the whole app, can access modules by returning an object and storing the object in a variable.
 const controller = (function(calcCtrl, UICtrl) {
-  const resultCtrl = function() {
-    // Get input data
-    // Add data to calc Controller
-    // Add data to the UI
-    // Calculate data
-    // display the data
+  UIController.btnClick();
+  const clear = function() {
+    calcCtrl.clear();
   };
-  document.querySelector(".equal").addEventListener("click", resultCtrl);
+  document.querySelector(".clear").addEventListener("click", clear);
+  const equalCtrl = function() {
+    // get input display
+    let input = UICtrl.inputStorage;
+    console.log(input);
+    // clear display
+  };
+  document.querySelector(".equal").addEventListener("click", equalCtrl);
 
   document.addEventListener("keypress", function(event) {
     if (event.keyCode === 13) {
-      resultCtrl();
+      equalCtrl();
     }
   });
-})(calcController, userInterfaceController);
+})(calcController, UIController);
+
+// read input data
