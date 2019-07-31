@@ -26,7 +26,7 @@ body h1 {
           box-sizing: border-box;
 }
 
-.calculator-main .currentValue {
+.calculator-main .current-value {
   -webkit-box-shadow: none;
           box-shadow: none;
   background: none;
@@ -62,7 +62,7 @@ body h1 {
   background-color: #ff775f;
 }
 
-.calculator-main .allButtons .clear {
+.calculator-main .allButtons .equal {
   grid-column: span 2;
 }
 /*# sourceMappingURL=main.css.map */

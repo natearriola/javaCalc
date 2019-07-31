@@ -28,7 +28,7 @@ body {
   margin: 0 auto;
   box-sizing: border-box;
 
-  .currentValue {
+  .current-value {
     box-shadow: none;
     background: none;
     border: none;
@@ -54,10 +54,10 @@ body {
       outline: none;
       text-align: center;
       border: 0.5px solid map-get($theme-colors, "accent_2");
-
       background-color: map-get($theme-colors, "secondary");
     }
-    .clear {
+
+    .equal {
       grid-column: span 2;
     }
   }
