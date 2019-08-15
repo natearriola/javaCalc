@@ -28,11 +28,19 @@ function clearInput(digit) {
   Calculator.displayValue = digit;
 }
 
+function handleOperator(operator) {
+  const { firstOperand, waitingForSecondOperand, operand } = Calculator;
+  if (firstOperand === null) {
+    firstOperand + operator;
+  }
+}
+
 // Click event to get the values of the btns
 const btns = document.querySelector(".allButtons");
 btns.addEventListener("click", event => {
   const { target } = event;
   if (target.classList.contains("oper")) {
+    handleOperator(target.value);
     console.log(target.value);
   } else if (target.classList.contains("decimal")) {
     console.log(target.value);
